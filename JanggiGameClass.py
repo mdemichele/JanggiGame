@@ -65,8 +65,8 @@ class JanggiGame:
             legal = self.is_legal(rg, move)
             if legal == True:
                 rg_legal_moves.append(move)
-        print("Red General Legal Moves:")
-        print(rg_legal_moves)
+        # print("Red General Legal Moves:")
+        # print(rg_legal_moves)
         
         # Determine all legal moves for blue general from a list of possible moves
         blue_possible_moves = [
@@ -88,8 +88,9 @@ class JanggiGame:
             legal = self.is_legal(bg, move)
             if (legal == True):
                 bg_legal_moves.append(move)
-        print("Blue General Legal Moves")
-        print(bg_legal_moves)
+        
+        # print("Blue General Legal Moves")
+        # print(bg_legal_moves)
         
         # Go through current location and through each legal move for red general and determine if all of those moves put the general in check. If every move puts general in check, set game state to "BLUE_WON"
         # To get if general is in check at any of the legal locations, iterate through each legal general move. For each legal general move, iterate through each opponent piece and see if the piece can legally capture the general.
@@ -107,8 +108,8 @@ class JanggiGame:
             if verdict == False:
                 not_check.append(move)
                 
-        print("Red General can move here: ")
-        print(not_check)
+        # print("Red General can move here: ")
+        # print(not_check)
         if len(not_check) == 0:
             self._state = "BLUE_WON"
         
@@ -127,8 +128,8 @@ class JanggiGame:
             if verdict == False:
                 not_check.append(move)
                     
-        print("Blue General can move here:")
-        print(not_check)
+        # print("Blue General can move here:")
+        # print(not_check)
         if len(not_check) == 0:
             self._state = "RED_WON"
         
@@ -1116,7 +1117,7 @@ class JanggiGame:
             capture = ""
             move_location = [move_from[0] + steps, move_from[1]]
             move_value = self._board[move_location[0]][move_location[1]]
-            while move_location[0] < 10:
+            while move_location[0] < 9:
                 
                 # Check for valid moves (captures) 
                 if jump_piece != "" and capture == "" and move_value[2] != "" and move_value[2] != "Cannon1" and move_value[2] != "Cannon2" and move_value[1] != "R":
@@ -1141,7 +1142,7 @@ class JanggiGame:
             capture = ""
             move_location = [move_from[0] - steps, move_from[1]]
             move_value = self._board[move_location[0]][move_location[1]]
-            while move_location[0] >= 0:
+            while move_location[0] > 0:
                 
                 # Check for valid moves (captures) 
                 if jump_piece != "" and capture == "" and move_value[2] != "" and move_value[2] != "Cannon1" and move_value[2] != "Cannon2" and move_value[1] != "R":
@@ -1167,7 +1168,7 @@ class JanggiGame:
             capture = ""
             move_location = [move_from[0], move_from[1] - steps]
             move_value = self._board[move_location[0]][move_location[1]]
-            while move_location[1] >= 0:
+            while move_location[1] > 0:
                 
                 # Check for valid moves (captures) 
                 if jump_piece != "" and capture == "" and move_value[2] != "" and move_value[2] != "Cannon1" and move_value[2] != "Cannon2" and move_value[1] != "R":
@@ -1193,7 +1194,7 @@ class JanggiGame:
             capture = ""
             move_location = [move_from[0], move_from[1] + steps]
             move_value = self._board[move_location[0]][move_location[1]]
-            while move_from[1] + steps < 10:
+            while move_from[1] + steps < 8:
                 
                 # Check for valid moves (captures) 
                 if jump_piece != "" and capture == "" and move_value[2] != "" and move_value[2] != "Cannon1" and move_value[2] != "Cannon2" and move_lvalue[1] != "R":
@@ -1239,7 +1240,7 @@ class JanggiGame:
             jump_piece = ""
             capture = ""
             move_location = self._board[move_from[0] - steps][move_from[1]]
-            while move_from[0] - steps >= 0:
+            while move_from[0] - steps > 0:
                 
                 # Check for valid moves (captures) 
                 if jump_piece != "" and capture == "" and move_location[2] != "" and move_location[2] != "Cannon1" and move_location[2] != "Cannon2" and move_location[1] != "R":
@@ -1262,7 +1263,7 @@ class JanggiGame:
             jump_piece = ""
             capture = ""
             move_location = self._board[move_from[0] + steps][move_from[1]]
-            while move_from[0] + steps >= 0:
+            while move_from[0] + steps > 0:
                 
                 # Check for valid moves (captures) 
                 if jump_piece != "" and capture == "" and move_location[2] != "" and move_location[2] != "Cannon1" and move_location[2] != "Cannon2" and move_location[1] != "R":
@@ -1286,7 +1287,7 @@ class JanggiGame:
             jump_piece = ""
             capture = ""
             move_location = self._board[move_from[0]][move_from[1] - steps]
-            while move_from[1] - steps >= 0:
+            while move_from[1] - steps > 0:
                 
                 # Check for valid moves (captures) 
                 if jump_piece != "" and capture == "" and move_location[2] != "" and move_location[2] != "Cannon1" and move_location[2] != "Cannon2" and move_location[1] != "R":
@@ -1310,7 +1311,7 @@ class JanggiGame:
             jump_piece = ""
             capture = ""
             move_location = self._board[move_from[0]][move_from[1] + steps]
-            while move_from[1] + steps < 10:
+            while move_from[1] + steps < 8:
                 
                 # Check for valid moves (captures) 
                 if jump_piece != "" and capture == "" and move_location[2] != "" and move_location[2] != "Cannon1" and move_location[2] != "Cannon2" and move_location[1] != "R":
