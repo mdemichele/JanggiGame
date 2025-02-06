@@ -1,6 +1,6 @@
 # Author: Matthew DeMichele
-# Date: Last Updated 13 August 2021
-# Description: This program contains the class definition for a game of Janggi. Program was built for Oregon State University CS 162 - Introduction to Computer Science II
+# Date: Last Updated 6 February 2025
+# Description: This program contains the class definition for a game of Janggi.
 
 class JanggiGame:
     """class defines the Janggi Board Game"""
